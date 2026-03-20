@@ -1,32 +1,6 @@
 <script setup lang="ts">
-import { computed, reactive } from 'vue'
-import SectionTitle from '@/components/ui/SectionTitle.vue'
 import GlassCard from '@/components/ui/GlassCard.vue'
-import GlowButton from '@/components/ui/GlowButton.vue'
-import ContactInfoCard from '@/components/cards/ContactInfoCard.vue'
-
-const form = reactive({
-  name: '',
-  email: '',
-  company: '',
-  message: '',
-})
-
-const isValid = computed(() => {
-  return (
-    form.name.trim().length > 0 &&
-    form.email.trim().length > 0 &&
-    form.message.trim().length > 0
-  )
-})
-
-function handleSubmit() {
-  if (!isValid.value) return
-
-  alert(
-    `Formulario demo enviado:\n\nNombre: ${form.name}\nCorreo: ${form.email}\nEmpresa: ${form.company}\nMensaje: ${form.message}`,
-  )
-}
+import SectionTitle from '@/components/ui/SectionTitle.vue'
 </script>
 
 <template>
@@ -34,74 +8,87 @@ function handleSubmit() {
     <div class="mx-auto max-w-7xl">
       <SectionTitle
         eyebrow="Contacto"
-        title="Formulario con v-model, validación simple y estado reactivo"
-        description="Aquí ya empezamos a exprimir Vue de forma práctica. No hay backend, pero sí experiencia interactiva: inputs reactivos, estado de botón y estructura lista para conectar después."
+        title="Información clara, accesible y con una presentación visual moderna"
+        description="La referencia usa un bloque informativo más visual que formulario. Por eso aquí dejamos un mapa ilustrativo y tarjetas de contacto alineadas al estilo general del sitio."
       />
 
-      <div class="mt-8 grid gap-6 lg:grid-cols-[0.8fr_1.2fr]">
-        <div class="space-y-4">
-          <ContactInfoCard title="Teléfono" value="+52 777 000 0000" icon="📞" />
-          <ContactInfoCard title="Correo" value="contacto@tuempresa.com" icon="✉️" />
-          <ContactInfoCard title="Ubicación" value="Cuernavaca, Morelos" icon="📍" />
-          <ContactInfoCard title="Horario" value="Lunes a viernes · 9:00 a.m. a 6:00 p.m." icon="🕒" />
-        </div>
-
-        <GlassCard glow="cyan">
-          <form class="space-y-4" @submit.prevent="handleSubmit">
-            <div class="grid gap-4 md:grid-cols-2">
-              <div>
-                <label class="mb-2 block text-sm text-slate-300">Nombre</label>
-                <input
-                  v-model="form.name"
-                  type="text"
-                  placeholder="Tu nombre"
-                  class="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-400/40 focus:bg-cyan-400/5"
-                />
-              </div>
-
-              <div>
-                <label class="mb-2 block text-sm text-slate-300">Correo</label>
-                <input
-                  v-model="form.email"
-                  type="email"
-                  placeholder="tu@correo.com"
-                  class="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-400/40 focus:bg-cyan-400/5"
-                />
-              </div>
-            </div>
-
+      <div class="mt-8 grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
+        <GlassCard glow="cyan" hoverable>
+          <div
+            class="flex min-h-[320px] items-end rounded-[1.5rem] border border-white/10 bg-[radial-gradient(circle_at_center,rgba(34,211,238,0.12),transparent_30%),linear-gradient(to_bottom_right,rgba(15,23,42,0.96),rgba(2,6,23,1))] p-6"
+          >
             <div>
-              <label class="mb-2 block text-sm text-slate-300">Empresa</label>
-              <input
-                v-model="form.company"
-                type="text"
-                placeholder="Nombre de tu empresa"
-                class="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-fuchsia-400/40 focus:bg-fuchsia-400/5"
-              />
-            </div>
-
-            <div>
-              <label class="mb-2 block text-sm text-slate-300">Mensaje</label>
-              <textarea
-                v-model="form.message"
-                rows="5"
-                placeholder="Cuéntanos qué necesitas"
-                class="w-full resize-none rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-violet-400/40 focus:bg-violet-400/5"
-              />
-            </div>
-
-            <div class="flex flex-wrap items-center justify-between gap-4">
-              <p class="text-sm" :class="isValid ? 'text-cyan-300' : 'text-slate-500'">
-                {{ isValid ? 'Formulario listo para enviar' : 'Completa nombre, correo y mensaje' }}
+              <p class="text-xs tracking-[0.3em] text-cyan-300 uppercase">Ubicación</p>
+              <h3 class="mt-3 text-3xl font-black text-white">Cuernavaca</h3>
+              <p class="mt-3 max-w-sm text-sm leading-7 text-slate-400">
+                Puedes sustituir este bloque por un mapa real, una imagen de oficina o una vista
+                satelital para acercarte todavía más a la referencia.
               </p>
-
-              <GlowButton
-                label="Enviar mensaje"
-                :disabled="!isValid"
-              />
             </div>
-          </form>
+          </div>
         </GlassCard>
+
+        <div class="grid gap-4">
+          <GlassCard glow="fuchsia" hoverable>
+            <div class="flex items-start gap-4">
+              <div
+                class="flex h-12 w-12 items-center justify-center rounded-2xl border border-fuchsia-400/25 bg-fuchsia-400/10 text-xl"
+              >
+                📞
+              </div>
+              <div>
+                <p class="text-sm text-slate-400">Teléfono</p>
+                <p class="mt-1 font-semibold text-white">+52 777 000 0000</p>
+              </div>
+            </div>
+          </GlassCard>
+
+          <GlassCard glow="fuchsia" hoverable>
+            <div class="flex items-start gap-4">
+              <div
+                class="flex h-12 w-12 items-center justify-center rounded-2xl border border-fuchsia-400/25 bg-fuchsia-400/10 text-xl"
+              >
+                ✉️
+              </div>
+              <div>
+                <p class="text-sm text-slate-400">Correo</p>
+                <p class="mt-1 font-semibold text-white">contacto@abctravelling.com</p>
+              </div>
+            </div>
+          </GlassCard>
+
+          <GlassCard glow="fuchsia" hoverable>
+            <div class="flex items-start gap-4">
+              <div
+                class="flex h-12 w-12 items-center justify-center rounded-2xl border border-fuchsia-400/25 bg-fuchsia-400/10 text-xl"
+              >
+                📍
+              </div>
+              <div>
+                <p class="text-sm text-slate-400">Dirección</p>
+                <p class="mt-1 font-semibold text-white">
+                  Cuernavaca, Morelos, México
+                </p>
+              </div>
+            </div>
+          </GlassCard>
+
+          <GlassCard glow="fuchsia" hoverable>
+            <div class="flex items-start gap-4">
+              <div
+                class="flex h-12 w-12 items-center justify-center rounded-2xl border border-fuchsia-400/25 bg-fuchsia-400/10 text-xl"
+              >
+                🕒
+              </div>
+              <div>
+                <p class="text-sm text-slate-400">Horario</p>
+                <p class="mt-1 font-semibold text-white">
+                  Lunes a viernes · 9:00 a.m. a 6:00 p.m.
+                </p>
+              </div>
+            </div>
+          </GlassCard>
+        </div>
       </div>
     </div>
   </section>
