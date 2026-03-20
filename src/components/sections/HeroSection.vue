@@ -52,16 +52,10 @@
                     class="flex flex-col gap-4 border-b border-white/10 px-5 py-4 md:flex-row md:items-center md:justify-between md:px-8"
                 >
                     <div class="flex items-center gap-3">
-                    <div
-                        class="flex h-11 w-11 items-center justify-center rounded-2xl border border-cyan-400/30 bg-cyan-400/10 text-cyan-300 shadow-[0_0_20px_rgba(34,211,238,0.25)]"
-                    >
-                        ✦
-                    </div>
                     <div>
                         <p class="text-sm font-semibold tracking-[0.25em] text-cyan-300 uppercase">
                         ABC Travelling
                         </p>
-                        <p class="text-xs text-slate-400">Interfaz frontend con Vue + Tailwind</p>
                     </div>
                     </div>
 
