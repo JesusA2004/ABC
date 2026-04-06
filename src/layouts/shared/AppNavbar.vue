@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import logoImg from '@/assets/LOGO.png'
 
 const isOpen = ref(false)
 
@@ -30,7 +31,7 @@ const links = [
         <!-- logo -->
         <a href="#inicio" class="flex shrink-0 items-center">
           <img
-            src="/favicon.png"
+            :src="logoImg"
             alt="ABC Travelling"
             class="h-[48px] w-auto object-contain sm:h-[56px] lg:h-[70px] xl:h-[78px]"
           />

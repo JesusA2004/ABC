@@ -15,7 +15,7 @@ const contactInfo = [
   },
   {
     title: 'Dirección',
-    value: 'Subida al Club Hípico 1, Reforma\n62260 Cuernavaca, Mor.',
+    value: 'Subida al Club 114 zona 1, Reforma\n62260 Cuernavaca, Mor.',
   },
   {
     title: 'Horario',
