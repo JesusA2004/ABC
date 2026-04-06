@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import ofrecemos from '@/assets/ofrecemos.png'
+
 const features = [
   {
     title: 'Amplio inventario\nglobal',
@@ -32,88 +34,105 @@ const features = [
   },
 ]
 
-const starsLeft = [
-  'left-[18px] top-[34px]',
-  'left-[28px] top-[58px]',
-  'left-[42px] top-[22px]',
-  'left-[54px] top-[78px]',
-  'left-[66px] top-[46px]',
-  'left-[74px] top-[96px]',
-  'left-[86px] top-[28px]',
-  'left-[96px] top-[66px]',
-  'left-[112px] top-[42px]',
+const leftStars = [
+  'left-[14px] top-[24px]',
+  'left-[24px] top-[46px]',
+  'left-[38px] top-[14px]',
+  'left-[52px] top-[72px]',
+  'left-[66px] top-[38px]',
+  'left-[78px] top-[92px]',
+  'left-[92px] top-[22px]',
+  'left-[106px] top-[62px]',
+  'left-[120px] top-[40px]',
 ]
 
-const starsRight = [
-  'right-[32px] top-[88px]',
-  'right-[22px] top-[128px]',
-  'right-[48px] top-[164px]',
-  'right-[64px] top-[212px]',
-  'right-[18px] top-[246px]',
-  'right-[42px] top-[286px]',
-  'right-[70px] top-[318px]',
-  'right-[34px] top-[352px]',
-  'right-[82px] top-[388px]',
-  'right-[50px] top-[430px]',
+const rightStars = [
+  'right-[16px] top-[190px]',
+  'right-[30px] top-[236px]',
+  'right-[48px] top-[284px]',
+  'right-[64px] top-[326px]',
+  'right-[24px] top-[376px]',
+  'right-[42px] top-[420px]',
+  'right-[64px] top-[470px]',
+  'right-[28px] top-[520px]',
+  'right-[78px] top-[566px]',
+  'right-[44px] top-[610px]',
 ]
 </script>
 
 <template>
   <section
     id="servicios"
-    class="relative overflow-hidden border-y border-white/20 bg-[#020816] px-4 py-10 sm:px-6 lg:px-8"
+    class="relative overflow-hidden border-y border-cyan-300/20 bg-[#000814] px-4 py-10 sm:px-5 sm:py-12 md:px-6 lg:px-8 lg:py-16"
   >
     <!-- fondo -->
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(8,38,92,0.35),transparent_42%)]" />
-    <div class="absolute inset-0 bg-[linear-gradient(180deg,#020816_0%,#010611_45%,#01040c_100%)]" />
-
-    <!-- línea superior/inferior -->
-    <div class="absolute inset-x-0 top-0 h-px bg-white/25" />
-    <div class="absolute inset-x-0 bottom-0 h-px bg-white/25" />
-
-    <!-- destellos laterales -->
+    <div class="absolute inset-0 bg-[#000814]" />
     <div
-      v-for="(item, index) in starsLeft"
+      class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(0,120,255,0.14),transparent_34%),radial-gradient(circle_at_bottom,rgba(0,120,255,0.06),transparent_28%)]"
+    />
+
+    <!-- línea superior / inferior -->
+    <div
+      class="pointer-events-none absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,rgba(0,174,255,0)_0%,rgba(0,174,255,0.45)_30%,rgba(0,174,255,0.9)_50%,rgba(255,191,73,0.45)_76%,rgba(255,191,73,0)_100%)]"
+    />
+    <div
+      class="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-[linear-gradient(90deg,rgba(255,191,73,0)_0%,rgba(255,191,73,0.45)_30%,rgba(255,191,73,0.9)_50%,rgba(0,174,255,0.45)_76%,rgba(0,174,255,0)_100%)]"
+    />
+
+    <!-- puntitos -->
+    <div
+      v-for="(item, index) in leftStars"
       :key="`left-${index}`"
-      class="absolute h-[3px] w-[3px] rounded-full bg-[#1f7bff] shadow-[0_0_8px_rgba(37,99,235,1),0_0_18px_rgba(37,99,235,0.95)]"
+      class="pointer-events-none absolute h-[3px] w-[3px] rounded-full bg-[#1e90ff] shadow-[0_0_8px_rgba(30,144,255,1),0_0_18px_rgba(30,144,255,0.95),0_0_30px_rgba(30,144,255,0.75)] sm:h-[4px] sm:w-[4px]"
       :class="item"
     />
     <div
-      v-for="(item, index) in starsRight"
+      v-for="(item, index) in rightStars"
       :key="`right-${index}`"
-      class="absolute h-[3px] w-[3px] rounded-full bg-[#1f7bff] shadow-[0_0_8px_rgba(37,99,235,1),0_0_18px_rgba(37,99,235,0.95)]"
+      class="pointer-events-none absolute h-[3px] w-[3px] rounded-full bg-[#1e90ff] shadow-[0_0_8px_rgba(30,144,255,1),0_0_18px_rgba(30,144,255,0.95),0_0_30px_rgba(30,144,255,0.75)] sm:h-[4px] sm:w-[4px]"
       :class="item"
     />
 
-    <div class="relative mx-auto max-w-[980px]">
+    <!-- halos -->
+    <div
+      class="pointer-events-none absolute left-[8%] top-[8%] h-[140px] w-[140px] rounded-full bg-cyan-400/8 blur-[60px] sm:h-[180px] sm:w-[180px] sm:blur-[70px]"
+    />
+    <div
+      class="pointer-events-none absolute right-[10%] bottom-[12%] h-[180px] w-[180px] rounded-full bg-cyan-400/8 blur-[70px] sm:h-[220px] sm:w-[220px] sm:blur-[80px]"
+    />
+
+    <div class="relative mx-auto max-w-[1240px]">
       <!-- título -->
-      <div class="text-center">
-        <h2
-          class="inline-block text-[30px] font-black uppercase leading-none tracking-[-0.02em] text-transparent [-webkit-text-stroke:1.6px_#1f7bff] [text-shadow:0_0_8px_rgba(37,99,235,0.95),0_0_18px_rgba(37,99,235,0.85)] sm:text-[38px]"
-        >
-          ¿QUE OFRECEMOS?
-        </h2>
+      <div class="mx-auto flex justify-center px-2 sm:px-4">
+        <img
+          :src="ofrecemos"
+          alt="¿Qué ofrecemos?"
+          class="block h-auto w-full max-w-[700px] object-contain sm:max-w-[800px] md:max-w-[900px] lg:max-w-[1000px] xl:max-w-[1200px] 2xl:max-w-[1300px]"
+        />
       </div>
 
       <!-- cards -->
-      <div class="mx-auto mt-10 grid max-w-[860px] grid-cols-1 justify-items-center gap-x-8 gap-y-7 sm:grid-cols-2 lg:grid-cols-3">
+      <div
+        class="mx-auto mt-8 grid max-w-[1100px] grid-cols-1 justify-items-center gap-x-5 gap-y-6 sm:mt-10 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-7 lg:mt-12 lg:grid-cols-3 lg:gap-x-8 lg:gap-y-9"
+      >
         <article
           v-for="(item, index) in features"
           :key="item.title"
-          class="group relative flex min-h-[262px] w-full max-w-[210px] flex-col items-center rounded-[22px] border border-white/70 bg-[radial-gradient(circle_at_top,rgba(10,34,73,0.95),rgba(3,11,28,0.98)_55%,rgba(2,7,18,1)_100%)] px-5 pt-7 pb-6 text-center shadow-[inset_0_0_30px_rgba(32,102,255,0.08)]"
-          :class="index === 3 ? 'sm:col-start-1 lg:col-start-auto' : ''"
+          class="group relative flex min-h-[270px] w-full max-w-[280px] flex-col items-center rounded-[24px] border border-white/80 bg-[radial-gradient(circle_at_top,rgba(11,36,78,0.9),rgba(3,11,28,0.98)_56%,rgba(2,7,18,1)_100%)] px-5 pt-7 pb-6 text-center shadow-[inset_0_0_30px_rgba(32,102,255,0.10)] transition duration-300 hover:-translate-y-1 hover:shadow-[inset_0_0_34px_rgba(32,102,255,0.14),0_0_24px_rgba(30,144,255,0.14)] sm:min-h-[295px] sm:max-w-[290px] sm:px-6 sm:pt-8 sm:pb-7 lg:min-h-[330px] lg:max-w-[300px] lg:px-7 lg:pt-9 lg:pb-8"
+          :class="[
+            index === 3 ? 'sm:col-start-1 lg:col-start-auto' : '',
+            index === 4 ? 'sm:col-start-2 lg:col-start-auto' : '',
+          ]"
         >
-          <!-- brillo inferior -->
           <div
-            class="pointer-events-none absolute bottom-[-1px] left-1/2 h-[10px] w-[62%] -translate-x-1/2 rounded-full bg-[#2296ff] blur-[7px]"
+            class="pointer-events-none absolute bottom-[-2px] left-1/2 h-[10px] w-[66%] -translate-x-1/2 rounded-full bg-[#1f93ff] blur-[8px]"
           />
           <div
-            class="pointer-events-none absolute inset-x-8 bottom-0 h-px bg-[linear-gradient(90deg,rgba(34,150,255,0),rgba(34,150,255,0.95),rgba(34,150,255,0))]"
+            class="pointer-events-none absolute inset-x-8 bottom-0 h-px bg-[linear-gradient(90deg,rgba(34,150,255,0),rgba(34,150,255,0.98),rgba(34,150,255,0))]"
           />
 
           <!-- icono -->
-          <div class="mb-5 flex h-[62px] items-center justify-center text-[#0d63ff]">
-            <!-- globe -->
+          <div class="mb-5 flex h-[72px] items-center justify-center text-[#0d63ff] sm:mb-6 sm:h-[80px] lg:mb-7 lg:h-[84px]">
             <svg
               v-if="item.icon === 'globe'"
               xmlns="http://www.w3.org/2000/svg"
@@ -121,7 +140,7 @@ const starsRight = [
               fill="none"
               stroke="currentColor"
               stroke-width="1.8"
-              class="h-[52px] w-[52px] drop-shadow-[0_0_10px_rgba(13,99,255,0.85)]"
+              class="h-[56px] w-[56px] drop-shadow-[0_0_12px_rgba(13,99,255,0.9)] sm:h-[62px] sm:w-[62px] lg:h-[68px] lg:w-[68px]"
             >
               <circle cx="12" cy="12" r="9" />
               <path d="M3 12h18" />
@@ -131,7 +150,6 @@ const starsRight = [
               <path d="M5.5 16.5c2-.8 4.2-1.2 6.5-1.2s4.5.4 6.5 1.2" />
             </svg>
 
-            <!-- user-check -->
             <svg
               v-else-if="item.icon === 'user-check'"
               xmlns="http://www.w3.org/2000/svg"
@@ -139,14 +157,13 @@ const starsRight = [
               fill="none"
               stroke="currentColor"
               stroke-width="1.8"
-              class="h-[52px] w-[52px] drop-shadow-[0_0_10px_rgba(13,99,255,0.85)]"
+              class="h-[56px] w-[56px] drop-shadow-[0_0_12px_rgba(13,99,255,0.9)] sm:h-[62px] sm:w-[62px] lg:h-[68px] lg:w-[68px]"
             >
               <circle cx="10" cy="7" r="3.5" />
               <path d="M4.5 19c0-3.2 2.9-5.5 5.5-5.5S15.5 15.8 15.5 19" />
               <path d="m15.5 11.5 2 2 4-4" />
             </svg>
 
-            <!-- hand -->
             <svg
               v-else-if="item.icon === 'hand'"
               xmlns="http://www.w3.org/2000/svg"
@@ -154,7 +171,7 @@ const starsRight = [
               fill="none"
               stroke="currentColor"
               stroke-width="1.8"
-              class="h-[52px] w-[52px] drop-shadow-[0_0_10px_rgba(13,99,255,0.85)]"
+              class="h-[56px] w-[56px] drop-shadow-[0_0_12px_rgba(13,99,255,0.9)] sm:h-[62px] sm:w-[62px] lg:h-[68px] lg:w-[68px]"
             >
               <path d="M8 11V7a1.5 1.5 0 1 1 3 0v4" />
               <path d="M11 11V5.8a1.5 1.5 0 1 1 3 0V11" />
@@ -165,7 +182,6 @@ const starsRight = [
               <path d="M20 10.5h.01" />
             </svg>
 
-            <!-- price -->
             <svg
               v-else-if="item.icon === 'price'"
               xmlns="http://www.w3.org/2000/svg"
@@ -173,7 +189,7 @@ const starsRight = [
               fill="none"
               stroke="currentColor"
               stroke-width="1.8"
-              class="h-[52px] w-[52px] drop-shadow-[0_0_10px_rgba(13,99,255,0.85)]"
+              class="h-[56px] w-[56px] drop-shadow-[0_0_12px_rgba(13,99,255,0.9)] sm:h-[62px] sm:w-[62px] lg:h-[68px] lg:w-[68px]"
             >
               <rect x="5" y="4" width="9" height="14" rx="1.5" />
               <path d="M8 8h3" />
@@ -186,7 +202,6 @@ const starsRight = [
               <path d="M10 6 8.7 4.7" />
             </svg>
 
-            <!-- clock-check -->
             <svg
               v-else
               xmlns="http://www.w3.org/2000/svg"
@@ -194,7 +209,7 @@ const starsRight = [
               fill="none"
               stroke="currentColor"
               stroke-width="1.8"
-              class="h-[52px] w-[52px] drop-shadow-[0_0_10px_rgba(13,99,255,0.85)]"
+              class="h-[56px] w-[56px] drop-shadow-[0_0_12px_rgba(13,99,255,0.9)] sm:h-[62px] sm:w-[62px] lg:h-[68px] lg:w-[68px]"
             >
               <circle cx="11" cy="12" r="8" />
               <path d="M11 8v4l2.8 1.8" />
@@ -204,28 +219,30 @@ const starsRight = [
           </div>
 
           <h3
-            class="whitespace-pre-line text-[16px] font-extrabold leading-[1.1] text-white"
+            class="whitespace-pre-line text-[20px] font-extrabold leading-[1.05] tracking-[-0.03em] text-white sm:text-[22px] lg:text-[24px]"
           >
             {{ item.title }}
           </h3>
 
-          <p class="mt-4 text-[10.5px] leading-[1.45] text-white/90">
+          <p class="mt-4 text-[12.5px] leading-[1.5] text-white/88 sm:mt-4 sm:text-[13px] lg:mt-5 lg:text-[14px]">
             {{ item.description }}
           </p>
         </article>
       </div>
 
       <!-- bloque inferior -->
-      <div class="mx-auto mt-14 max-w-[760px] text-center">
+      <div class="mx-auto mt-14 max-w-[940px] px-2 text-center sm:mt-16 lg:mt-20">
         <h3
-          class="text-[34px] font-black leading-[1.02] tracking-[-0.03em] text-white sm:text-[44px]"
+          class="text-[34px] font-black leading-[1] tracking-[-0.04em] text-white sm:text-[44px] md:text-[52px] lg:text-[64px] xl:text-[68px]"
         >
           Empieza hoy a vender
           <br />
           hoteles en todo el mundo.
         </h3>
 
-        <p class="mx-auto mt-4 max-w-[650px] text-[11.5px] leading-[1.5] text-white/80 sm:text-[12px]">
+        <p
+          class="mx-auto mt-4 max-w-[780px] text-[14px] leading-[1.55] text-white/80 sm:mt-5 sm:text-[15px] md:text-[16px] lg:text-[18px]"
+        >
           Únete a ABC Travelling y ofrece a tus clientes miles de opciones de alojamiento con
           confirmación inmediata. Nuestra plataforma ofrece hoteles en destinos líderes del turismo
           internacional.

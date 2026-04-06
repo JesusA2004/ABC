@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import logoImg from '@/assets/LOGO.png'
+import puntosImg from '@/assets/puntos.png'
+
 const socialLinks = [
   {
     name: 'WhatsApp',
@@ -26,45 +29,38 @@ const socialLinks = [
     icon: 'tiktok',
   },
 ]
-
-const leftStars = [
-  'left-[24px] top-[26px]',
-  'left-[18px] top-[48px]',
-  'left-[34px] top-[68px]',
-  'left-[14px] top-[86px]',
-  'left-[30px] top-[102px]',
-]
-
-const rightStars = [
-  'right-[26px] top-[34px]',
-  'right-[18px] top-[56px]',
-  'right-[34px] top-[76px]',
-]
 </script>
 
 <template>
   <footer
-    class="relative overflow-hidden border-t border-white/25 bg-[#020816] px-4 py-8 sm:px-6 lg:px-8"
+    class="relative overflow-hidden bg-[#000814] px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-14"
   >
     <!-- fondo -->
-    <div class="absolute inset-0 bg-[linear-gradient(180deg,#020816_0%,#010711_55%,#01040c_100%)]" />
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(20,80,180,0.14),transparent_36%)]" />
-
-    <!-- estrellas -->
+    <div class="absolute inset-0 bg-[#000814]" />
     <div
-      v-for="(item, index) in leftStars"
-      :key="`left-${index}`"
-      class="absolute h-[3px] w-[3px] rounded-full bg-[#167dff] shadow-[0_0_8px_rgba(22,125,255,1),0_0_18px_rgba(22,125,255,0.95)]"
-      :class="item"
-    />
-    <div
-      v-for="(item, index) in rightStars"
-      :key="`right-${index}`"
-      class="absolute h-[3px] w-[3px] rounded-full bg-[#167dff] shadow-[0_0_8px_rgba(22,125,255,1),0_0_18px_rgba(22,125,255,0.95)]"
-      :class="item"
+      class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(0,120,255,0.08),transparent_34%),radial-gradient(circle_at_bottom,rgba(0,120,255,0.06),transparent_30%)]"
     />
 
-    <div class="relative mx-auto flex max-w-[980px] flex-col items-center justify-center">
+    <!-- puntitos -->
+    <div class="pointer-events-none absolute left-0 top-0 z-0">
+      <img
+        :src="puntosImg"
+        alt=""
+        aria-hidden="true"
+        class="w-[130px] opacity-100 mix-blend-screen [filter:brightness(0)_saturate(100%)_invert(50%)_sepia(100%)_saturate(5000%)_hue-rotate(191deg)_brightness(120%)_contrast(110%)] sm:w-[160px] lg:w-[190px]"
+      />
+    </div>
+
+    <div class="pointer-events-none absolute right-0 top-0 z-0">
+      <img
+        :src="puntosImg"
+        alt=""
+        aria-hidden="true"
+        class="w-[100px] rotate-180 opacity-100 mix-blend-screen [filter:brightness(0)_saturate(100%)_invert(50%)_sepia(100%)_saturate(5000%)_hue-rotate(191deg)_brightness(120%)_contrast(110%)] sm:w-[120px] lg:w-[140px]"
+      />
+    </div>
+
+    <div class="relative mx-auto flex max-w-[1100px] flex-col items-center justify-center">
       <!-- redes -->
       <div class="flex flex-wrap items-center justify-center gap-5 sm:gap-6">
         <a
@@ -72,7 +68,7 @@ const rightStars = [
           :key="item.name"
           :href="item.href"
           :aria-label="item.name"
-          class="text-white/90 transition hover:scale-105 hover:text-white"
+          class="text-white/90 transition duration-200 hover:scale-105 hover:text-white"
         >
           <!-- whatsapp -->
           <svg
@@ -82,7 +78,7 @@ const rightStars = [
             fill="none"
             stroke="currentColor"
             stroke-width="1.8"
-            class="h-7 w-7 drop-shadow-[0_0_6px_rgba(255,255,255,0.45)] sm:h-8 sm:w-8"
+            class="h-8 w-8 drop-shadow-[0_0_6px_rgba(255,255,255,0.45)] sm:h-9 sm:w-9"
           >
             <path d="M20 11.5A8.5 8.5 0 0 1 7.5 19L4 20l1.1-3.3A8.5 8.5 0 1 1 20 11.5Z" />
             <path d="M9 8.8c.2-.5.5-.5.7-.5h.6c.2 0 .4 0 .6.5.2.4.7 1.6.8 1.7.1.2.1.4 0 .6l-.4.5c-.1.1-.2.3-.1.5.1.2.5.9 1.1 1.5.7.6 1.4 1 1.6 1.1.2.1.4.1.5-.1l.6-.7c.2-.2.3-.2.6-.1.2.1 1.5.7 1.7.8.2.1.4.2.4.3 0 .2 0 1-.4 1.4-.4.4-.9.6-1.3.7-.3.1-.8.1-1.3 0-.6-.1-1.4-.4-2.5-1-.9-.5-1.8-1.3-2.5-2.1-.7-.7-1.3-1.6-1.7-2.4-.5-.9-.8-1.8-.7-2.5.1-.5.3-1 .6-1.4Z" />
@@ -96,7 +92,7 @@ const rightStars = [
             fill="none"
             stroke="currentColor"
             stroke-width="1.8"
-            class="h-7 w-7 drop-shadow-[0_0_6px_rgba(255,255,255,0.45)] sm:h-8 sm:w-8"
+            class="h-8 w-8 drop-shadow-[0_0_6px_rgba(255,255,255,0.45)] sm:h-9 sm:w-9"
           >
             <rect x="3.5" y="3.5" width="17" height="17" rx="4.5" />
             <circle cx="12" cy="12" r="4.2" />
@@ -109,7 +105,7 @@ const rightStars = [
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
             fill="currentColor"
-            class="h-7 w-7 drop-shadow-[0_0_6px_rgba(255,255,255,0.45)] sm:h-8 sm:w-8"
+            class="h-8 w-8 drop-shadow-[0_0_6px_rgba(255,255,255,0.45)] sm:h-9 sm:w-9"
           >
             <path d="M13.5 21v-7h2.3l.4-2.8h-2.7V9.4c0-.8.2-1.4 1.4-1.4H16V5.6c-.2 0-.9-.1-1.8-.1-1.8 0-3 1.1-3 3.2v2.5H9v2.8h2.4v7h2.1Z" />
           </svg>
@@ -122,7 +118,7 @@ const rightStars = [
             fill="none"
             stroke="currentColor"
             stroke-width="1.8"
-            class="h-7 w-7 drop-shadow-[0_0_6px_rgba(255,255,255,0.45)] sm:h-8 sm:w-8"
+            class="h-8 w-8 drop-shadow-[0_0_6px_rgba(255,255,255,0.45)] sm:h-9 sm:w-9"
           >
             <rect x="3" y="6.5" width="18" height="11" rx="3" />
             <path d="m10 9.5 5 2.5-5 2.5v-5Z" fill="currentColor" stroke="none" />
@@ -134,7 +130,7 @@ const rightStars = [
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
             fill="currentColor"
-            class="h-7 w-7 drop-shadow-[0_0_6px_rgba(255,255,255,0.45)] sm:h-8 sm:w-8"
+            class="h-8 w-8 drop-shadow-[0_0_6px_rgba(255,255,255,0.45)] sm:h-9 sm:w-9"
           >
             <path d="M14.7 3c.3 2.1 1.5 3.4 3.4 4 .5.2 1.1.3 1.7.3v2.7c-1 0-2-.2-2.9-.6-.6-.2-1.1-.6-1.6-1v6.1c0 3.1-2.2 5.3-5.3 5.3-1.2 0-2.2-.3-3.1-.9-1.3-.9-2.2-2.4-2.2-4.4 0-3.1 2.2-5.3 5.3-5.3.2 0 .4 0 .6.1v2.8c-.2-.1-.4-.1-.6-.1-1.5 0-2.5 1-2.5 2.5 0 1 .4 1.7 1.1 2.1.4.2.8.3 1.4.3 1.4 0 2.4-1 2.4-2.5V3h2.3Z" />
           </svg>
@@ -146,12 +142,12 @@ const rightStars = [
         © Copyright 2026 ABC Travelling - Todos los derechos reservados
       </p>
 
-      <!-- logo -->
-      <div class="mt-4">
+      <!-- logo grande -->
+      <div class="mt-5 flex justify-center">
         <img
-          src="/favicon.png"
+          :src="logoImg"
           alt="ABC Travelling"
-          class="h-[24px] w-auto object-contain opacity-95"
+          class="h-[42px] w-auto object-contain opacity-100 sm:h-[52px] lg:h-[64px]"
         />
       </div>
     </div>

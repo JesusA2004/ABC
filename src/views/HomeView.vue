@@ -6,12 +6,14 @@
     import FeaturesSection from '@/components/sections/FeaturesSection.vue'
     import ApiSection from '@/components/sections/ApiSection.vue'
     import ContactSection from '@/components/sections/ContactSection.vue'
+    import B2BSection from '@/components/sections/B2BSection.vue'
 </script>
 
 <template>
     <MainLayout>
         <HeroSection />
         <AboutSection />
+        <B2BSection />
         <FeaturesSection />
         <ApiSection />
         <ContactSection />
