@@ -28,7 +28,6 @@ const bottomLeftStars = [
 		<div class="b2b-bg-glow" />
 		<div class="b2b-top-line" />
 
-		<!-- estrellas superiores derecha -->
 		<div class="stars-corner stars-corner-right" aria-hidden="true">
 			<span
 				v-for="(star, index) in topRightStars"
@@ -45,7 +44,6 @@ const bottomLeftStars = [
 			/>
 		</div>
 
-		<!-- estrellas inferiores izquierda -->
 		<div class="stars-corner stars-corner-left" aria-hidden="true">
 			<span
 				v-for="(star, index) in bottomLeftStars"
@@ -62,18 +60,15 @@ const bottomLeftStars = [
 			/>
 		</div>
 
-		<!-- glow dorado inferior -->
 		<div class="gold-glow gold-glow-main" />
 		<div class="gold-glow gold-glow-soft" />
 		<div class="gold-line" />
 
 		<div class="b2b-container">
-			<!-- imagen -->
 			<div class="b2b-image-side">
 				<img :src="b2bImg" alt="Plataforma B2B" class="b2b-image" />
 			</div>
 
-			<!-- texto -->
 			<div class="b2b-copy">
 				<h2 class="b2b-title">
 					<span>PLATAFORMA B2B</span>
@@ -234,18 +229,18 @@ const bottomLeftStars = [
 		0 0 24px rgba(255, 191, 73, 0.35);
 }
 
-/* layout */
+/* layout desktop */
 .b2b-container {
 	position: relative;
 	z-index: 2;
 	width: min(100%, 1560px);
 	min-height: 720px;
 	margin: 0 auto;
-	padding: 72px 72px 82px;
+	padding: 72px 56px 82px;
 	display: grid;
-	grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+	grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
 	align-items: center;
-	gap: 54px;
+	gap: 36px;
 }
 
 .b2b-image-side {
@@ -266,50 +261,25 @@ const bottomLeftStars = [
 .b2b-copy {
 	display: flex;
 	flex-direction: column;
-	align-items: center;
-	text-align: center;
+	align-items: flex-end;
+	text-align: right;
 	justify-self: end;
 	width: 100%;
-	max-width: 780px;
+	max-width: 720px;
+	transform: none;
 }
 
 .b2b-title {
+	width: 100%;
+	max-width: 720px;
 	margin: 0;
 	color: #ffffff;
-	font-size: clamp(54px, 5vw, 92px);
-	font-weight: 900;
-	line-height: 0.92;
-	letter-spacing: -0.055em;
+	font-size: clamp(68px, 5.3vw, 82px);
+	font-weight: 950;
+	line-height: 0.9;
+	letter-spacing: -0.04em;
+	text-align: right;
 	text-transform: uppercase;
-	text-wrap: balance;
-}
-
-@media (min-width: 1025px) {
-	.b2b-copy {
-		justify-self: end;
-		align-items: flex-end;
-		text-align: right;
-		max-width: 760px;
-		transform: translateX(120px);
-	}
-
-	.b2b-title {
-		width: 900px;
-		max-width: none;
-		text-align: right;
-	}
-
-	.b2b-description {
-		width: 760px;
-		max-width: none;
-		margin-left: auto;
-		margin-right: 0;
-		text-align: right;
-	}
-
-	.b2b-action {
-		justify-content: flex-end;
-	}
 }
 
 .b2b-title span {
@@ -317,25 +287,26 @@ const bottomLeftStars = [
 }
 
 .b2b-title-small {
-	font-size: 0.58em;
-	letter-spacing: -0.045em;
+	font-size: 0.56em;
+	letter-spacing: -0.025em;
 }
 
 .b2b-description {
-	max-width: 720px;
-	margin: 70px auto 0;
+	width: 100%;
+	max-width: 680px;
+	margin: 58px 0 0 auto;
 	color: rgba(255, 255, 255, 0.95);
-	font-size: clamp(22px, 1.55vw, 30px);
+	font-size: clamp(22px, 1.45vw, 27px);
 	font-weight: 400;
 	line-height: 1.28;
-	letter-spacing: -0.018em;
-	text-align: center;
+	letter-spacing: -0.012em;
+	text-align: right;
 }
 
 .b2b-action {
-	margin-top: 64px;
+	margin-top: 56px;
 	display: flex;
-	justify-content: center;
+	justify-content: flex-end;
 	width: 100%;
 }
 
@@ -344,19 +315,19 @@ const bottomLeftStars = [
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	min-width: 290px;
-	overflow: hidden;
+	min-width: 270px;
+	overflow: visible;
 	border-radius: 999px;
-	border: 3px solid rgba(182, 122, 31, 0.9);
-	background: linear-gradient(180deg, rgba(19, 39, 71, 0.86), rgba(6, 15, 31, 0.95));
-	padding: 10px 32px;
+	border: 2px solid #b97825;
+	background: transparent;
+	padding: 11px 34px;
 	color: #ffffff;
-	font-size: 26px;
+	font-size: 22px;
 	font-weight: 800;
 	line-height: 1;
 	box-shadow:
-		0 0 16px rgba(255, 191, 73, 0.18),
-		inset 0 0 16px rgba(255, 191, 73, 0.05);
+		0 0 10px rgba(255, 174, 55, 0.42),
+		inset 0 0 8px rgba(255, 174, 55, 0.16);
 	transition:
 		transform 0.2s ease,
 		box-shadow 0.2s ease,
@@ -366,34 +337,37 @@ const bottomLeftStars = [
 .b2b-button::before {
 	content: '';
 	position: absolute;
-	inset: 0;
-	border-radius: inherit;
+	left: 28px;
+	top: -3px;
+	width: 82px;
+	height: 4px;
+	border-radius: 999px;
 	background: linear-gradient(
 		90deg,
-		rgba(255, 170, 0, 0) 0%,
-		rgba(255, 209, 113, 0.16) 45%,
-		rgba(255, 255, 255, 0.5) 52%,
-		rgba(255, 209, 113, 0.14) 60%,
-		rgba(255, 170, 0, 0) 100%
+		rgba(255, 183, 56, 0) 0%,
+		rgba(255, 225, 148, 1) 50%,
+		rgba(255, 183, 56, 0) 100%
 	);
-	opacity: 0.65;
+	filter: blur(1px);
+	pointer-events: none;
 }
 
 .b2b-button::after {
 	content: '';
 	position: absolute;
-	right: 22px;
-	bottom: -8px;
-	width: 120px;
-	height: 18px;
+	right: 44px;
+	bottom: -4px;
+	width: 96px;
+	height: 5px;
 	border-radius: 999px;
-	background: radial-gradient(
-		ellipse at center,
-		rgba(255, 191, 73, 1),
-		rgba(255, 191, 73, 0.45),
-		rgba(255, 191, 73, 0)
+	background: linear-gradient(
+		90deg,
+		rgba(255, 183, 56, 0) 0%,
+		rgba(255, 225, 148, 1) 50%,
+		rgba(255, 183, 56, 0) 100%
 	);
-	filter: blur(6px);
+	filter: blur(2px);
+	pointer-events: none;
 }
 
 .b2b-button span {
@@ -402,44 +376,91 @@ const bottomLeftStars = [
 }
 
 .b2b-button:hover {
-	transform: scale(1.025);
-	border-color: rgba(255, 191, 73, 1);
+	transform: scale(1.02);
+	border-color: #f0a83a;
 	box-shadow:
-		0 0 22px rgba(255, 191, 73, 0.3),
-		inset 0 0 18px rgba(255, 191, 73, 0.08);
+		0 0 16px rgba(255, 174, 55, 0.62),
+		inset 0 0 10px rgba(255, 174, 55, 0.22);
 }
 
-/* responsive */
+/* laptop grande */
+@media (min-width: 1281px) and (max-width: 1500px) {
+	.b2b-container {
+		padding-inline: 54px;
+		grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+		gap: 28px;
+	}
+
+	.b2b-copy {
+		max-width: 660px;
+	}
+
+	.b2b-title {
+		max-width: 660px;
+		font-size: clamp(66px, 5vw, 74px);
+	}
+
+	.b2b-description {
+		max-width: 640px;
+		font-size: 24px;
+	}
+
+	.b2b-image {
+		width: min(100%, 660px);
+	}
+}
+
+/* tablet horizontal / laptop chica */
 @media (max-width: 1280px) {
 	.b2b-container {
 		min-height: 660px;
 		padding: 64px 42px 76px;
-		gap: 34px;
+		grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+		gap: 26px;
 	}
 
 	.b2b-image {
 		width: min(100%, 620px);
 	}
 
+	.b2b-copy {
+		max-width: 620px;
+		align-items: flex-end;
+		text-align: right;
+	}
+
 	.b2b-title {
-		font-size: clamp(48px, 5vw, 74px);
+		max-width: 620px;
+		font-size: clamp(58px, 5.6vw, 72px);
+		line-height: 0.9;
+		letter-spacing: -0.038em;
+	}
+
+	.b2b-title-small {
+		font-size: 0.55em;
+		letter-spacing: -0.024em;
 	}
 
 	.b2b-description {
-		margin-top: 52px;
-		font-size: 24px;
+		max-width: 590px;
+		margin-top: 48px;
+		font-size: 23px;
+		text-align: right;
 	}
 
 	.b2b-action {
-		margin-top: 48px;
+		margin-top: 46px;
+		justify-content: flex-end;
 	}
 
 	.b2b-button {
-		min-width: 260px;
-		font-size: 23px;
+		min-width: 220px;
+		padding: 10px 24px;
+		font-size: 19px;
 	}
 }
 
+/* mobile / tablet vertical */
 @media (max-width: 1024px) {
 	.b2b-container {
 		min-height: auto;
@@ -456,25 +477,32 @@ const bottomLeftStars = [
 	.b2b-copy {
 		justify-self: center;
 		order: 1;
+		align-items: center;
+		text-align: center;
 		max-width: 820px;
 	}
 
-	.b2b-image {
-		width: min(100%, 560px);
-	}
-
 	.b2b-title {
+		max-width: 820px;
+		text-align: center;
 		font-size: clamp(42px, 8vw, 68px);
 	}
 
 	.b2b-description {
-		margin-top: 34px;
+		max-width: 720px;
+		margin: 34px auto 0;
+		text-align: center;
 		font-size: 22px;
 		line-height: 1.34;
 	}
 
 	.b2b-action {
 		margin-top: 34px;
+		justify-content: center;
+	}
+
+	.b2b-image {
+		width: min(100%, 560px);
 	}
 }
 
@@ -495,10 +523,9 @@ const bottomLeftStars = [
 	}
 
 	.b2b-button {
-		min-width: 220px;
-		border-width: 2px;
-		padding: 10px 24px;
-		font-size: 19px;
+		min-width: 200px;
+		font-size: 17px;
+		padding: 10px 22px;
 	}
 
 	.b2b-image {

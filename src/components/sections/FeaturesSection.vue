@@ -509,7 +509,7 @@ const bottomRightStars = [
 	font-size: clamp(54px, 5.2vw, 88px);
 	font-weight: 950;
 	line-height: 0.96;
-	letter-spacing: -0.055em;
+	letter-spacing: -0.015em;
 }
 
 .offers-final h3 span {
@@ -517,12 +517,12 @@ const bottomRightStars = [
 }
 
 .offers-final p {
-	max-width: 1000px;
+	max-width: 1180px;
 	margin: 28px auto 0;
 	color: rgba(255, 255, 255, 0.92);
-	font-size: clamp(20px, 1.5vw, 26px);
-	line-height: 1.36;
-	letter-spacing: -0.018em;
+	font-size: clamp(20px, 1.35vw, 24px);
+	line-height: 1.34;
+	letter-spacing: -0.01em;
 }
 
 /* responsive */

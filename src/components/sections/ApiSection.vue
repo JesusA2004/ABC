@@ -118,7 +118,7 @@ import apiImg from '@/assets/api.png'
 	width: min(100%, 1600px);
 	min-height: 720px;
 	margin: 0 auto;
-	padding: 34px 48px 48px 34px;
+	padding: 48px 48px;
 	display: grid;
 	grid-template-columns: minmax(0, 0.94fr) minmax(0, 1.06fr);
 	align-items: center;
@@ -128,9 +128,8 @@ import apiImg from '@/assets/api.png'
 .api-copy {
 	width: 100%;
 	max-width: 720px;
-	align-self: start;
+	align-self: center;
 	justify-self: start;
-	padding-top: 6px;
 	margin-left: 0;
 }
 
@@ -251,7 +250,7 @@ import apiImg from '@/assets/api.png'
 /* desktop grande */
 @media (min-width: 1400px) {
 	.api-container {
-		padding: 38px 68px 52px 58px;
+		padding: 52px 68px;
 		grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
 	}
 

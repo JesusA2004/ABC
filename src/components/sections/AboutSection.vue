@@ -55,7 +55,6 @@ const worldSparkles = [
 		<div class="about-bg-right-glow" />
 		<div class="about-top-line" />
 
-		<!-- estrellas esquina superior izquierda -->
 		<div class="stars-corner stars-corner-left" aria-hidden="true">
 			<span
 				v-for="(star, index) in topLeftStars"
@@ -72,7 +71,6 @@ const worldSparkles = [
 			/>
 		</div>
 
-		<!-- estrellas esquina inferior derecha -->
 		<div class="stars-corner stars-corner-right" aria-hidden="true">
 			<span
 				v-for="(star, index) in bottomRightStars"
@@ -89,13 +87,11 @@ const worldSparkles = [
 			/>
 		</div>
 
-		<!-- glow dorado -->
 		<div class="gold-glow gold-glow-main" />
 		<div class="gold-glow gold-glow-soft" />
 		<div class="gold-line" />
 
 		<div class="about-container">
-			<!-- izquierda -->
 			<div class="about-copy">
 				<img :src="quienesSomosTitle" alt="¿Quiénes somos?" class="about-title-img" />
 
@@ -125,7 +121,6 @@ const worldSparkles = [
 				</div>
 			</div>
 
-			<!-- derecha -->
 			<div class="world-side">
 				<div class="world-wrap">
 					<span
@@ -213,7 +208,7 @@ const worldSparkles = [
 	box-shadow: 0 0 16px rgba(0, 162, 255, 0.42);
 }
 
-/* estrellas esquinas */
+/* estrellas */
 .stars-corner {
 	position: absolute;
 	z-index: 1;
@@ -311,37 +306,40 @@ const worldSparkles = [
 .about-container {
 	position: relative;
 	z-index: 2;
-	width: min(100%, 1780px);
-	min-height: 790px;
+	width: min(100%, 1720px);
+	min-height: 730px;
 	margin: 0 auto;
-	padding: 74px 34px 86px 28px;
+	padding: 22px 42px 52px;
 	display: grid;
-	grid-template-columns: minmax(0, 860px) minmax(0, 1fr);
+	grid-template-columns: minmax(0, 790px) minmax(0, 1fr);
 	align-items: center;
-	gap: 18px;
+	gap: 0;
 }
 
 .about-copy {
 	width: 100%;
-	max-width: 860px;
+	max-width: 790px;
 	justify-self: start;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 
 .about-title-img {
 	display: block;
-	width: 900px;
+	width: 860px;
 	max-width: none;
 	height: auto;
-	margin: 0 0 30px;
+	margin: -42px 0 18px;
 	object-fit: contain;
 	position: relative;
-	left: -40px; /* más a la izquierda */
-	top: 38px; /* más abajo */
+	left: -44px;
+	top: 0;
 }
 
 .about-subtitle {
 	margin: 0;
-	max-width: 710px;
+	max-width: 730px;
 	color: #ffffff;
 	font-size: 31px;
 	line-height: 1.16;
@@ -355,7 +353,7 @@ const worldSparkles = [
 }
 
 .about-text {
-	max-width: 710px;
+	max-width: 730px;
 	margin-top: 26px;
 	color: rgba(255, 255, 255, 0.97);
 	font-size: 20px;
@@ -388,14 +386,16 @@ const worldSparkles = [
 .world-side {
 	position: relative;
 	display: flex;
-	justify-content: flex-end;
+	justify-content: center;
 	align-items: center;
+	min-width: 0;
+	transform: translateX(-40px);
 }
 
 .world-wrap {
 	position: relative;
-	width: 610px;
-	height: 610px;
+	width: 730px;
+	height: 730px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -424,24 +424,36 @@ const worldSparkles = [
 
 @media (min-width: 1281px) {
 	.about-title-img {
-		max-width: 880px;
-		position: relative;
-		left: -70px;
-		top: 22px;
-		margin-bottom: 24px;
+		width: 880px;
+		left: -58px;
+		margin-top: -54px;
+		margin-bottom: 18px;
+	}
+
+	.about-container {
+		padding-top: 22px;
+		padding-bottom: 52px;
+	}
+
+	.world-wrap {
+		width: 760px;
+		height: 760px;
 	}
 }
 
-/* responsive */
 @media (max-width: 1280px) {
 	.about-container {
-		min-height: 740px;
-		padding: 64px 28px 76px 22px;
-		grid-template-columns: minmax(0, 690px) minmax(0, 1fr);
+		min-height: 700px;
+		padding: 50px 28px;
+		grid-template-columns: minmax(0, 670px) minmax(0, 1fr);
 	}
 
 	.about-title-img {
-		max-width: 670px;
+		width: 690px;
+		max-width: none;
+		left: -36px;
+		margin-top: -14px;
+		margin-bottom: 16px;
 	}
 
 	.about-subtitle {
@@ -452,18 +464,22 @@ const worldSparkles = [
 		font-size: 18.5px;
 	}
 
+	.world-side {
+		transform: translateX(-22px);
+	}
+
 	.world-wrap {
-		width: 540px;
-		height: 540px;
+		width: 620px;
+		height: 620px;
 	}
 }
 
 @media (max-width: 1024px) {
 	.about-container {
 		min-height: auto;
-		padding: 56px 24px 68px;
+		padding: 56px 24px;
 		grid-template-columns: 1fr;
-		gap: 38px;
+		gap: 36px;
 	}
 
 	.about-copy {
@@ -480,7 +496,9 @@ const worldSparkles = [
 	}
 
 	.about-title-img {
-		max-width: 620px;
+		width: min(100%, 620px);
+		left: 0;
+		margin: 0 0 18px;
 	}
 
 	.about-subtitle {
@@ -491,24 +509,20 @@ const worldSparkles = [
 		font-size: 18px;
 	}
 
-	.about-text p {
-		text-align: justify;
-		text-justify: inter-word;
-	}
-
 	.world-side {
 		justify-content: center;
+		transform: none;
 	}
 
 	.world-wrap {
-		width: 480px;
-		height: 480px;
+		width: 520px;
+		height: 520px;
 	}
 }
 
 @media (max-width: 768px) {
 	.about-container {
-		padding: 46px 18px 60px;
+		padding: 46px 18px;
 	}
 
 	.about-copy {
@@ -517,8 +531,8 @@ const worldSparkles = [
 	}
 
 	.about-title-img {
-		max-width: 460px;
-		margin-bottom: 22px;
+		width: min(100%, 460px);
+		margin-bottom: 18px;
 	}
 
 	.about-subtitle {
@@ -532,14 +546,9 @@ const worldSparkles = [
 		line-height: 1.68;
 	}
 
-	.about-text p {
-		text-align: justify;
-		text-justify: inter-word;
-	}
-
 	.world-wrap {
-		width: 370px;
-		height: 370px;
+		width: 390px;
+		height: 390px;
 	}
 
 	.gold-glow-main {
@@ -563,7 +572,7 @@ const worldSparkles = [
 
 @media (max-width: 520px) {
 	.about-container {
-		padding: 40px 14px 54px;
+		padding: 40px 14px;
 	}
 
 	.about-copy {
@@ -572,7 +581,7 @@ const worldSparkles = [
 	}
 
 	.about-title-img {
-		max-width: 360px;
+		width: min(100%, 360px);
 	}
 
 	.about-subtitle {
@@ -585,8 +594,8 @@ const worldSparkles = [
 	}
 
 	.world-wrap {
-		width: 300px;
-		height: 300px;
+		width: 310px;
+		height: 310px;
 	}
 }
 </style>
