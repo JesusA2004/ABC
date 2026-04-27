@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import b2bImg from '@/assets/pc.png'
+import { RouterLink } from 'vue-router'
 
 const topRightStars = [
 	{ top: '18px', right: '56px', size: '3px', glow: '18px', opacity: 1 },
@@ -83,9 +84,20 @@ const bottomLeftStars = [
 				</p>
 
 				<div class="b2b-action">
-					<a href="#contacto" class="b2b-button">
-						<span>Acceso a Agencias</span>
-					</a>
+					<RouterLink
+						to="/registro-agencias"
+						class="relative inline-flex items-center justify-center rounded-full border-2 border-[#b97825] bg-transparent px-8 py-2.5 text-[18px] font-semibold text-white shadow-[0_0_10px_rgba(255,174,55,0.45),inset_0_0_8px_rgba(255,174,55,0.18)] transition duration-200 hover:scale-[1.02] hover:border-[#f0a83a] hover:shadow-[0_0_16px_rgba(255,174,55,0.65),inset_0_0_10px_rgba(255,174,55,0.24)]"
+					>
+						<span
+							class="pointer-events-none absolute left-[18px] top-[-2px] h-[3px] w-[64px] rounded-full bg-[linear-gradient(90deg,rgba(255,183,56,0)_0%,rgba(255,211,121,1)_50%,rgba(255,183,56,0)_100%)] blur-[1px]"
+						/>
+
+						<span
+							class="pointer-events-none absolute right-[22px] bottom-[-2px] h-[3px] w-[78px] rounded-full bg-[linear-gradient(90deg,rgba(255,183,56,0)_0%,rgba(255,211,121,1)_50%,rgba(255,183,56,0)_100%)] blur-[1px]"
+						/>
+
+						<span class="relative z-10">Acceso a Agencias</span>
+					</RouterLink>
 				</div>
 			</div>
 		</div>

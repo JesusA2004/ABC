@@ -6,10 +6,19 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
-  plugins: [vue(), vueDevTools(), tailwindcss()],
-  resolve: {
-    alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url)),
-    },
-  },
+	plugins: [vue(), vueDevTools(), tailwindcss()],
+	resolve: {
+		alias: {
+			'@': fileURLToPath(new URL('./src', import.meta.url)),
+		},
+	},
+	server: {
+		proxy: {
+			'/api': {
+				target: 'http://localhost/ABCTravelling/public',
+				changeOrigin: true,
+				secure: false,
+			},
+		},
+	},
 })

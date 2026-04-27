@@ -500,7 +500,7 @@ async function submitForm() {
 			result = {}
 		}
 
-		if (!response.ok || result.ok === false) {
+		if (!response.ok || result.ok !== true) {
 			throw new Error(result.message || t.value.statusError)
 		}
 

@@ -144,7 +144,7 @@ const submitForm = async () => {
 			result = {}
 		}
 
-		if (!response.ok || result.ok === false) {
+		if (!response.ok || result.ok !== true) {
 			throw new Error(result.message || 'Error al enviar el formulario')
 		}
 
