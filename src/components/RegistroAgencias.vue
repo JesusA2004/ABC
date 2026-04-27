@@ -487,7 +487,7 @@ async function submitForm() {
 		formData.append('usuario_principal_telefono', form.usuario_principal_telefono)
 		formData.append('promociones', form.promociones)
 
-		const response = await fetch('/enviar-registro.php', {
+		const response = await fetch('/api/enviar-registro.php', {
 			method: 'POST',
 			body: formData,
 		})

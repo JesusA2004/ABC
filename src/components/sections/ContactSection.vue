@@ -3,7 +3,7 @@ import { reactive, ref } from 'vue'
 import Swal from 'sweetalert2'
 import contactoTitle from '@/assets/contacto.png'
 
-const CONTACT_ENDPOINT = import.meta.env.VITE_CONTACT_ENDPOINT as string | undefined
+const CONTACT_ENDPOINT = '/api/enviar-contacto.php'
 
 const contactInfo = [
 	{
@@ -105,19 +105,6 @@ const submitForm = async () => {
 		return
 	}
 
-	if (!CONTACT_ENDPOINT) {
-		await Swal.fire({
-			icon: 'info',
-			title: 'Formulario pendiente de conexión',
-			text: 'Configura VITE_CONTACT_ENDPOINT en el archivo .env para enviar los mensajes.',
-			confirmButtonText: 'Entendido',
-			background: '#000814',
-			color: '#ffffff',
-			confirmButtonColor: '#0468ff',
-		})
-		return
-	}
-
 	loading.value = true
 
 	Swal.fire({
@@ -149,8 +136,16 @@ const submitForm = async () => {
 			}),
 		})
 
-		if (!response.ok) {
-			throw new Error('Error al enviar el formulario')
+		let result: { ok?: boolean; message?: string } = {}
+
+		try {
+			result = await response.json()
+		} catch {
+			result = {}
+		}
+
+		if (!response.ok || result.ok === false) {
+			throw new Error(result.message || 'Error al enviar el formulario')
 		}
 
 		Swal.close()
